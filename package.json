@@ -1,0 +1,48 @@
+{
+  "name": "svg-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "test": "jest --config jestconfig.json",
+    "test:watch": "jest --config jestconfig.json --watch",
+    "build": "tsc",
+    "lint": "eslint \"src/**/*.js\" --max-warnings 0 --fix",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run lint && git add -A src",
+    "postversion": "git push && git push --tags",
+    "example": "parcel example/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashikmeerankutty/svg-generator.git"
+  },
+  "keywords": [
+    "Title",
+    "SVG"
+  ],
+  "author": "Ashik Meerankutty",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ashikmeerankutty/svg-generator/issues"
+  },
+  "homepage": "https://github.com/ashikmeerankutty/svg-generator#readme",
+  "devDependencies": {
+    "@types/jest": "^26.0.19",
+    "@typescript-eslint/eslint-plugin": "^4.9.1",
+    "@typescript-eslint/parser": "^4.9.1",
+    "eslint": "^7.15.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "jest": "^26.6.3",
+    "ts-jest": "^26.4.4",
+    "typescript": "^4.1.3",
+    "parcel": "^1.12.4"
+  },
+  "files": [
+    "lib/**/*"
+  ]
+}
