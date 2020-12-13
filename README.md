@@ -1,1 +1,2 @@
-# svg-generator
+# Hat
+Dynamic title and favicons.
