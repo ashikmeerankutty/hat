@@ -31,16 +31,20 @@
   },
   "homepage": "https://github.com/ashikmeerankutty/svg-generator#readme",
   "devDependencies": {
+    "@babel/core": "^7.12.10",
     "@types/jest": "^26.0.19",
     "@typescript-eslint/eslint-plugin": "^4.9.1",
     "@typescript-eslint/parser": "^4.9.1",
+    "babel-plugin-inferno": "^6.1.1",
+    "babel-preset-es2015": "^6.24.1",
     "eslint": "^7.15.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.22.1",
+    "inferno": "^7.4.6",
     "jest": "^26.6.3",
+    "parcel": "^1.12.4",
     "ts-jest": "^26.4.4",
-    "typescript": "^4.1.3",
-    "parcel": "^1.12.4"
+    "typescript": "^4.1.3"
   },
   "files": [
     "lib/**/*"

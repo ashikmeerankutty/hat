@@ -1,15 +1,23 @@
-export function generateBase64(svg: Node) {
-  const serialize = new XMLSerializer().serializeToString(svg);
-  const encodedData = window.btoa(serialize);
-  return `data:image/svg+xml;base64,${encodedData}`;
-}
-
 export function htmlToElement(html: string) {
   let htmlString = html;
   const template = document.createElement('template');
   htmlString = htmlString.trim();
   template.innerHTML = htmlString;
   return template.content.firstChild;
+}
+
+export function generateBase64(svg: string) {
+  const svgElement = htmlToElement(svg);
+  if (!svgElement) {
+    throw new Error('Invalid svg');
+  }
+  const serialize = new XMLSerializer().serializeToString(svgElement);
+  const encodedData = window.btoa(serialize);
+  return `data:image/svg+xml;base64,${encodedData}`;
+}
+
+export function replaceCount(svg: string, count: number) {
+  return svg.replace('{{count}}', count.toString());
 }
 
 export function scrollTitle(text: string, time: number = 500) {
@@ -41,11 +49,18 @@ export function svgFavicon(svg: string) {
     || window.document.createElement('link');
   link.type = 'image/svg+xml';
   link.rel = 'shortcut icon';
-  const svgElement = htmlToElement(svg);
-  if (svgElement) {
-    link.href = generateBase64(svgElement);
-    window.document.getElementsByTagName('head')[0].appendChild(link);
-  } else {
-    throw new Error('Invalid svg');
+  link.href = generateBase64(svg);
+  window.document.getElementsByTagName('head')[0].appendChild(link);
+}
+
+export function svgFaviconCounter(svg: string, initialCount?: number) {
+  if (!svg) {
+    throw new Error('No svg provided');
   }
+  let count = initialCount || 0;
+  return () => {
+    count += 1;
+    const svgWithCount = svg.replace('{{count}}', count.toString());
+    svgFavicon(svgWithCount);
+  };
 }
