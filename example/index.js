@@ -15,14 +15,15 @@ class DemoPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      svgString: '<svg fill="white" id="Capa_1" enable-background="new 0 0 512.001 512.001" height="512" viewBox="0 0 512.001 512.001" width="512" xmlns="http://www.w3.org/2000/svg"><g><path d="m129.86 367.176-122.176 29.089c-3.626.864-6.472 3.673-7.381 7.289-.91 3.616.268 7.437 3.055 9.914 69.41 61.693 163.857 98.525 252.642 98.525 29.446 0 59.693-3.995 89.903-11.873 5.344-1.394 8.546-6.855 7.153-12.2-1.393-5.344-6.856-8.547-12.2-7.153-28.563 7.449-57.112 11.226-84.856 11.226-77.809 0-160.29-29.961-224.361-80.873l105.535-25.127h237.652l105.542 25.129c-17.87 14.213-37.279 26.892-57.903 37.811-4.881 2.584-6.743 8.636-4.159 13.517 2.584 4.88 8.635 6.743 13.517 4.159 27.952-14.8 53.798-32.679 76.82-53.142 2.787-2.477 3.964-6.298 3.054-9.914-.909-3.616-3.755-6.425-7.381-7.289l-120.089-28.592-20.086-80.345c-6.048-24.189-20.802-45.126-41.545-58.955l-36.088-24.059c-9.191-6.131-11.68-18.538-5.548-27.734l29.721-44.582c10.536-15.809 8.433-37.034-4.991-50.458l-73.972-74.16c-8.046-8.039-20.102-9.671-29.999-4.066-9.895 5.605-14.689 16.784-11.93 27.816.087.349.193.692.317 1.029l22.185 60.254c1.49 6.637-.545 13.693-5.372 18.52l-35.98 35.98c-9.883 9.883-13.914 24.44-10.521 37.986l19.44 77.77c3.409 13.636.894 28.164-6.899 39.858-9.125 13.689-32.603 48.906-43.099 64.65zm86.14-41.183v40h-61.315l26.667-40zm75 0v40h-55v-40zm62.193 0 10 40h-52.193v-40zm-173.372-145.949c-1.696-6.772.319-14.048 5.261-18.989l35.98-35.981c9.883-9.882 13.914-24.439 10.519-37.99-.087-.347-.192-.689-.316-1.025l-22.161-60.189c-.56-3.059 1.521-4.614 2.475-5.154.995-.564 3.575-1.614 5.992.801l73.969 74.159c6.716 6.717 7.768 17.329 2.501 25.232l-29.719 44.579c-12.262 18.386-7.3 43.203 11.093 55.469l36.09 24.061c16.594 11.063 28.397 27.812 33.236 47.164l3.454 13.815h-154.207c7.374-14.829 9.33-31.949 5.274-48.175z"/><circle cx="386" cy="475.993" r="10"/></g></svg>',
+      svgString: '<svg fill="red" id="Capa_1" enable-background="new 0 0 512.001 512.001" height="512" viewBox="0 0 512.001 512.001" width="512" xmlns="http://www.w3.org/2000/svg"><g><path d="m129.86 367.176-122.176 29.089c-3.626.864-6.472 3.673-7.381 7.289-.91 3.616.268 7.437 3.055 9.914 69.41 61.693 163.857 98.525 252.642 98.525 29.446 0 59.693-3.995 89.903-11.873 5.344-1.394 8.546-6.855 7.153-12.2-1.393-5.344-6.856-8.547-12.2-7.153-28.563 7.449-57.112 11.226-84.856 11.226-77.809 0-160.29-29.961-224.361-80.873l105.535-25.127h237.652l105.542 25.129c-17.87 14.213-37.279 26.892-57.903 37.811-4.881 2.584-6.743 8.636-4.159 13.517 2.584 4.88 8.635 6.743 13.517 4.159 27.952-14.8 53.798-32.679 76.82-53.142 2.787-2.477 3.964-6.298 3.054-9.914-.909-3.616-3.755-6.425-7.381-7.289l-120.089-28.592-20.086-80.345c-6.048-24.189-20.802-45.126-41.545-58.955l-36.088-24.059c-9.191-6.131-11.68-18.538-5.548-27.734l29.721-44.582c10.536-15.809 8.433-37.034-4.991-50.458l-73.972-74.16c-8.046-8.039-20.102-9.671-29.999-4.066-9.895 5.605-14.689 16.784-11.93 27.816.087.349.193.692.317 1.029l22.185 60.254c1.49 6.637-.545 13.693-5.372 18.52l-35.98 35.98c-9.883 9.883-13.914 24.44-10.521 37.986l19.44 77.77c3.409 13.636.894 28.164-6.899 39.858-9.125 13.689-32.603 48.906-43.099 64.65zm86.14-41.183v40h-61.315l26.667-40zm75 0v40h-55v-40zm62.193 0 10 40h-52.193v-40zm-173.372-145.949c-1.696-6.772.319-14.048 5.261-18.989l35.98-35.981c9.883-9.882 13.914-24.439 10.519-37.99-.087-.347-.192-.689-.316-1.025l-22.161-60.189c-.56-3.059 1.521-4.614 2.475-5.154.995-.564 3.575-1.614 5.992.801l73.969 74.159c6.716 6.717 7.768 17.329 2.501 25.232l-29.719 44.579c-12.262 18.386-7.3 43.203 11.093 55.469l36.09 24.061c16.594 11.063 28.397 27.812 33.236 47.164l3.454 13.815h-154.207c7.374-14.829 9.33-31.949 5.274-48.175z"/><circle cx="386" cy="475.993" r="10"/></g></svg>',
       count: 1,
       svgCount: 0,
       imageString: '',
       svgCountString: svgString,
+      rollingString: 'This is a long scrolling text.',
     };
     this.onSVGChange = this.onSVGChange.bind(this);
-    this.onIncrement = this.onIncrement.bind(this);
+    this.onCountChange = this.onCountChange.bind(this);
   }
 
   onSVGChange(e) {
@@ -33,13 +34,20 @@ class DemoPage extends Component {
     });
   }
 
-  onIncrement() {
-    const replacedImageString = replaceCount(this.state.svgCountString, this.state.svgCount + 1);
+  onCountChange(decrement = false) {
+    let updatedCount = this.state.svgCount;
+    if (decrement) {
+      updatedCount -= 1;
+      incrementFavicon(null, true, this.state.svgCountString);
+    } else {
+      updatedCount += 1;
+      incrementFavicon(null, false, this.state.svgCountString);
+    }
+    const replacedImageString = replaceCount(this.state.svgCountString, updatedCount);
     this.setState({
       imageString: generateBase64(replacedImageString),
-      svgCount: this.state.svgCount + 1,
+      svgCount: updatedCount,
     });
-    incrementFavicon();
   }
 
   componentDidMount() {
@@ -66,7 +74,10 @@ class DemoPage extends Component {
             <h3 className="basic-item__heading">Increment title</h3>
             <p className="basic-item__description">Update the count in site title</p>
           </div>
-          <button className="primary-button" onClick={increment}>Increment title</button>
+          <div>
+            <button className="primary-button" onClick={() => increment()}>Increment count</button>
+            <button className="primary-button decrement" onClick={() => increment(true)}>Decrement count</button>
+          </div>
         </div>
         <div className="basic-item">
           <div>
@@ -85,7 +96,10 @@ class DemoPage extends Component {
             <h3 className="basic-item__heading">Set rolling text on title</h3>
             <p className="basic-item__description">Update the title with a rolling text</p>
           </div>
-          <button className="primary-button" onClick={() => scrollTitle('This is a long scrolling text. ')}>Set rolling title</button>
+          <input className="primary-input" defaultValue={this.state.rollingString} onChange={(e) => {
+            this.setState({ rollingString: e.target.value });
+          }}></input>
+          <button className="primary-button" onClick={() => scrollTitle(this.state.rollingString)}>Set rolling title</button>
         </div>
         <div className="basic-item">
           <div>
@@ -105,15 +119,19 @@ class DemoPage extends Component {
             <div class="preview-content">
               <textarea className="primary-textarea" rows={30} onInput={this.onSVGChange}>
                 {this.state.svgCountString}</textarea>
-              <button className="primary-button" onClick={this.onIncrement}>increment</button>
+              <button className="primary-button" onClick={() => this.onCountChange(false)}>increment</button>
+              <button className="primary-button decrement" onClick={() => this.onCountChange(true)}>Decrement</button>
             </div>
             <div className="preview-image">
               <img src={this.state.imageString} />
             </div>
           </div>
         </div>
-        <p className="footer">Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a></p>
-      </div>
+        <div className="footer-wrapper">
+          <p className="footer">Made by <a href="https://github.com/ashikmeerankutt">Ashik Meerankutty</a></p>
+          <p className="footer">Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a></p>
+        </div>
+      </div >
     );
   }
 }

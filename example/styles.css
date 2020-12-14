@@ -129,3 +129,12 @@ body {
 .footer a {
   color: #212121;
 }
+
+.decrement {
+  margin-left: 10px;
+}
+
+.footer-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
