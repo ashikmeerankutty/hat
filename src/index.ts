@@ -35,8 +35,9 @@ export function titleCount(count: string | number, titleText?: string) {
 export function incrementTitle(initialCount?: number, titleText?: string) {
   let count = initialCount || 0;
   const documentTitle = titleText || document.title;
-  return () => {
-    count += 1;
+  return (decrement: boolean = false) => {
+    const factor = decrement ? -1 : 1;
+    count += factor;
     titleCount(count, documentTitle);
   };
 }
@@ -54,13 +55,21 @@ export function svgFavicon(svg: string) {
 }
 
 export function svgFaviconCounter(svg: string, initialCount?: number) {
+  let faviconSvg = svg;
   if (!svg) {
     throw new Error('No svg provided');
   }
   let count = initialCount || 0;
-  return () => {
-    count += 1;
-    const svgWithCount = svg.replace('{{count}}', count.toString());
+  return (updatedCount?: number, decrement: boolean = false, svgString?: string) => {
+    const factor = decrement ? -1 : 1;
+    if (svgString) {
+      faviconSvg = svgString;
+    }
+    if (updatedCount) {
+      count = updatedCount;
+    }
+    count += factor;
+    const svgWithCount = faviconSvg.replace('{{count}}', count.toString());
     svgFavicon(svgWithCount);
   };
 }
