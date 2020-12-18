@@ -53,7 +53,7 @@ svgFavicon(svgLogo); // set svg icon as favicon
 Replaces `{{count}}` in an svg with a dynamic counter value, Suitable for chat apps to show unread messages inside favicon.
 
 ```javascript
-import { svgFavicon } from '@space-kit/hat';
+import { svgFaviconCounter } from '@space-kit/hat';
 
 /**
  * Replace {{count}} with counter value
