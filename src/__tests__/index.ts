@@ -1,21 +1,21 @@
 import {
-  titleCount, incrementTitle, htmlToElement, svgFavicon,
+  setTitleCount, titleCounter, htmlToElement, svgFavicon,
 } from '../index';
 
 describe('tests title operations', () => {
   it('show count', () => {
     document.title = 'Hello';
-    titleCount(1);
+    setTitleCount(1);
     expect(document.title).toBe('(1) Hello');
   });
 
   it('show count with custom text', () => {
-    titleCount(1, 'Hello');
+    setTitleCount(1, 'Hello');
     expect(document.title).toBe('(1) Hello');
   });
 
   it('increment count in title', () => {
-    const increment = incrementTitle(0, 'Hello');
+    const increment = titleCounter(0, 'Hello');
     increment();
     expect(document.title).toBe('(1) Hello');
     increment();

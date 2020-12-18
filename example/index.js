@@ -1,14 +1,14 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { render, Component } from 'inferno';
 import {
-  titleCount, incrementTitle,
-  scrollTitle, svgFavicon, generateBase64, replaceCount, svgFaviconCounter,
-} from '../dist';
+  setTitleCount, titleCounter,
+  rollingTitle, svgFavicon, generateBase64, replaceCount, svgFaviconCounter,
+} from '../dist/esm';
 import Logo from './logo.svg';
 
 const svgString = '<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><path style="fill:#7DD2F0;" d="M256.001,503.563c-66.127,0-128.294-25.751-175.053-72.51c-46.759-46.758-72.51-108.927-72.51-175.052S34.188,127.705,80.946,80.947c46.76-46.759,108.927-72.51,175.055-72.51c66.126,0,128.294,25.751,175.052,72.51c46.759,46.759,72.51,108.927,72.51,175.053s-25.752,128.294-72.51,175.053S322.126,503.563,256.001,503.563z M256.001,75.937c-99.288,0-180.064,80.776-180.064,180.064s80.776,180.063,180.064,180.063s180.064-80.776,180.064-180.063S355.287,75.937,256.001,75.937z"/><g style="opacity:0.1;"><path d="M125.946,431.053c-46.758-46.758-72.509-108.927-72.509-175.053s25.751-128.294,72.509-175.052c41.414-41.414,94.92-66.331,152.554-71.491c-7.438-0.666-14.941-1.019-22.5-1.019c-66.127,0-128.294,25.751-175.053,72.51C34.188,127.705,8.437,189.874,8.437,255.999s25.751,128.296,72.509,175.053c46.759,46.758,108.927,72.51,175.053,72.51c7.559,0,15.061-0.353,22.51.019C220.865,497.384,167.361,472.467,125.946,431.053z"/></g><path d="M256.001,512c-68.379,0-132.667-26.628-181.02-74.981C26.628,388.668,0,324.381,0,256.001c0-60.137,21.205-118.499,59.705-164.336c2.997-3.57,8.32-4.032,11.8881.034c3.567,2.997,4.031,8.319,1.034,11.887c-36.473,43.422-55.752,96.494-55.752,153.483c0,63.872,24.872,123.922,70.038,169.086c45.165,45.165,105.215,70.038,169.088,70.038s123.922-24.873,169.086-70.038c45.165-45.165,70.039-105.214,70.039-169.086c0-63.873-24.873-123.923-70.038-169.086c-45.166-45.166-105.215-70.039-169.088-70.039c-59.686,0-116.788,22.064-160.791,62.127c-3.444,3.138-8.781,2.888-11.919-0.558c-3.136-3.446-2.887-8.782,0.558-11.919C130.965,23.626,192.104,0,256.001,0c68.379,0,132.667,26.628,181.019,74.981C485.372,123.332,512,187.619,512,256.001c0,68.38-26.628,132.666-74.98,181.019S324.379,512,256.001,512z M256.001,444.501c-103.941,0-188.501-84.561-188.501-188.5S152.06,67.499,256.001,67.499s188.501,84.562,188.501,188.501c0,26.344-5.358,51.852-15.924,75.812c-10.201,23.131-24.736,43.707-43.202,61.158c-3.387,3.199-8.727,3.05-11.928-0.337c-3.201-3.387-3.05-8.727,0.337-11.928c34.72-32.812,53.842-77.1,53.842-124.705c-0.001-94.634-76.992-171.626-171.627-171.626S84.374,161.366,84.374,256.001s76.992,171.627,171.627,171.627c32.779,0,64.665-9.316,92.216-26.94c3.924-2.511,9.144-1.365,11.654,2.56c2.511,3.925,1.366,9.143-2.559,11.654C327.04,434.266,292.007,444.501,256.001,444.501z"/><text x="170" font-size="20em" fill="#7dd2f0" font-weight="900" y="350">{{count}}</text></svg>';
 
-const increment = incrementTitle(0, 'Hello');
+const increment = titleCounter(0, 'Hello');
 const incrementFavicon = svgFaviconCounter(svgString);
 
 class DemoPage extends Component {
@@ -88,7 +88,7 @@ class DemoPage extends Component {
             <input className="primary-input" defaultValue={this.state.count} onChange={(e) => {
               this.setState({ count: e.target.value });
             }}></input>
-            <button className="primary-button" onClick={() => titleCount(this.state.count, 'Hello')}>Set custom count</button>
+            <button className="primary-button" onClick={() => setTitleCount(this.state.count, 'Hello')}>Set custom count</button>
           </div>
         </div>
         <div className="basic-item">
@@ -99,7 +99,7 @@ class DemoPage extends Component {
           <input className="primary-input" defaultValue={this.state.rollingString} onChange={(e) => {
             this.setState({ rollingString: e.target.value });
           }}></input>
-          <button className="primary-button" onClick={() => scrollTitle(this.state.rollingString)}>Set rolling title</button>
+          <button className="primary-button" onClick={() => rollingTitle(this.state.rollingString)}>Set rolling title</button>
         </div>
         <div className="basic-item">
           <div>

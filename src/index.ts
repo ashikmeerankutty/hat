@@ -20,25 +20,25 @@ export function replaceCount(svg: string, count: number) {
   return svg.replace('{{count}}', count.toString());
 }
 
-export function scrollTitle(text: string, time: number = 500) {
+export function rollingTitle(text: string, time: number = 500) {
   document.title = text;
   setTimeout(() => {
-    scrollTitle(`${text.substr(1)}${text.substr(0, 1)}`);
+    rollingTitle(`${text.substr(1)}${text.substr(0, 1)}`);
   }, time);
 }
 
-export function titleCount(count: string | number, titleText?: string) {
+export function setTitleCount(count: string | number, titleText?: string) {
   const documentTitle = titleText || document.title;
   document.title = `(${count}) ${documentTitle}`;
 }
 
-export function incrementTitle(initialCount?: number, titleText?: string) {
+export function titleCounter(initialCount?: number, titleText?: string) {
   let count = initialCount || 0;
   const documentTitle = titleText || document.title;
   return (decrement: boolean = false) => {
     const factor = decrement ? -1 : 1;
     count += factor;
-    titleCount(count, documentTitle);
+    setTitleCount(count, documentTitle);
   };
 }
 
